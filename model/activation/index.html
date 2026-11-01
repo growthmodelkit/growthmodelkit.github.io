@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activation calculator: how onboarding lifts retention · Growth Model Kit</title>
+    <meta name="description" content="How does better onboarding lift retention?">
+    <link rel="canonical" href="https://growthmodelkit.com/model/activation/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Growth Model Kit">
+    <meta property="og:title" content="Activation calculator: how onboarding lifts retention">
+    <meta property="og:description" content="How does better onboarding lift retention?">
+    <meta property="og:url" content="https://growthmodelkit.com/model/activation/">
+    <meta property="og:image" content="https://growthmodelkit.com/assets/img/og.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="A person pushes a lever; gears and pulleys lift the retention curve. Find the lever that matters.">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+    <link rel="stylesheet" href="/assets/css/book.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <script data-goatcounter="https://growthmodelkit.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+    <script type="application/ld+json">
+    {"@context": "https://schema.org", "@graph": [
+        {"@type": "WebSite", "@id": "https://growthmodelkit.com/#website", "url": "https://growthmodelkit.com/", "name": "Growth Model Kit", "description": "Simple calculators to find the levers of your product growth", "author": {"@id": "https://growthmodelkit.com/about/#person"}},
+        {"@type": "Person", "@id": "https://growthmodelkit.com/about/#person", "name": "Dmitrii Pankov", "jobTitle": "Product growth modeling", "url": "https://growthmodelkit.com/about/", "image": "https://growthmodelkit.com/assets/img/dmitrii-pankov.jpg", "sameAs": ["https://www.linkedin.com/in/dmitriipankov"]},
+        {"@type": "WebApplication", "name": "Activation calculator: how onboarding lifts retention", "description": "How does better onboarding lift retention?", "url": "https://growthmodelkit.com/model/activation/", "applicationCategory": "BusinessApplication", "operatingSystem": "Any", "browserRequirements": "Requires JavaScript", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "author": {"@id": "https://growthmodelkit.com/about/#person"}, "isPartOf": {"@id": "https://growthmodelkit.com/#website"}}
+    ]}
+    </script>
+</head>
+<body>
+    <header>
+        <a href="/">Growth Model Kit <svg aria-hidden="true" viewBox="3.6 3.6 24.8 24.8" width="1em" height="1em" style="vertical-align: -0.23em"><path fill="currentColor" fill-rule="evenodd" d="M25.3 14.0L28.4 14.1L28.4 17.9L25.3 18.0L24.0 21.1L26.1 23.4L23.4 26.1L21.1 24.0L18.0 25.3L17.9 28.4L14.1 28.4L14.0 25.3L10.9 24.0L8.6 26.1L5.9 23.4L8.0 21.1L6.7 18.0L3.6 17.9L3.6 14.1L6.7 14.0L8.0 10.9L5.9 8.6L8.6 5.9L10.9 8.0L14.0 6.7L14.1 3.6L17.9 3.6L18.0 6.7L21.1 8.0L23.4 5.9L26.1 8.6L24.0 10.9Z M20 16A4 4 0 1 0 12 16A4 4 0 1 0 20 16Z"/></svg></a>
+        <nav aria-label="Site">
+            <ul>
+                <li><a href="/model/" aria-current="true">Model</a></li>
+                <li><a href="/about/">About</a></li>
+            </ul>
+        </nav>
+        <nav aria-label="Tools">
+            <ul>
+                <li><a href="/model/mau/">MAU</a></li>
+                <li><a href="/model/ltv/">LTV</a></li>
+                <li><a href="/model/activation/" aria-current="page">Activation</a></li>
+                <li><a href="/model/engagement/">Engagement</a></li>
+                <li><a href="/model/virality/">Virality</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Activation</h1>
+        <p>How does better onboarding lift retention?</p>
+        <nav aria-label="On this page">
+            <ul>
+                <li><a href="#chart">Chart</a></li>
+                <li><a href="#your-numbers">Your numbers</a></li>
+                <li><a href="#result">Result</a></li>
+                <li><a href="#levers">Levers</a></li>
+                <li><a href="#use-in-model">Use in model</a></li>
+            </ul>
+        </nav>
+        <h2 id="chart">Chart</h2>
+<figure class="chart" id="activation-chart" data-label="Retention as a mix of users who activate and users who don't, by the share who activate">
+    <figcaption>Retention is a mix of users who activate and users who don't: the more new users activate, the higher it is.</figcaption>
+    <div class="chart-plot"></div>
+</figure>
+
+<h2 id="your-numbers">Your numbers</h2>
+<p>Start with the example numbers, then put in your own.</p>
+<form id="activation-form">
+    <p><strong>Activation.</strong> The share of new users who reach the habit moment: they come back and use the product again and again. Pick an action that shows the habit, such as three visits in the first week, and take the share of new users who do it.</p>
+    <fieldset>
+        <legend>Activation</legend>
+        <p><label for="a">Share who activate</label> <input id="a" name="a" type="number" value="30" min="0" max="100" step="any" required> <small>%</small></p>
+    </fieldset>
+
+    <p><strong>Retention.</strong> The share of a cohort still active when the retention curve flattens, for each group on its own: users who activate and users who don't. Split your retention curve by the habit action to get both numbers. Users who activate are usually much more likely to stay.</p>
+    <fieldset>
+        <legend>Retention</legend>
+        <p><label for="ra">Activated users</label> <input id="ra" name="ra" type="number" value="68" min="0" max="100" step="any" required> <small>%</small></p>
+        <p><label for="rn">Users who don't activate</label> <input id="rn" name="rn" type="number" value="28" min="0" max="100" step="any" required> <small>%</small></p>
+    </fieldset>
+
+    <p hidden>Some values are out of range. Fix the marked fields to update the result.</p>
+</form>
+
+<h2 id="result">Result</h2>
+<p><strong>Retention.</strong> Retention of all new users. The more of them activate, the closer it is to the retention of activated users.</p>
+<table>
+    <tr><th>Retention</th><td data-out="plateau">40%</td></tr>
+</table>
+
+<h2 id="levers">Levers</h2>
+<p>One number moves retention here. Set how much you could improve it to see the effect.</p>
+<form id="levers-form">
+    <p><strong>Activation.</strong> Better onboarding helps more new users reach the habit moment: a shorter way to the first value, help with the first steps, reminders to come back.</p>
+    <fieldset>
+        <legend>Activation</legend>
+        <p><label for="lift">Improve&nbsp;by</label> <input id="lift" name="lift" type="number" value="10" min="0" max="1000" step="any" required> <small>+%&nbsp;of&nbsp;current</small></p>
+        <p><span>Change</span> <output data-out="lever-share">30% → 33%</output></p>
+        <p><span>Retention</span> <strong data-out="effect-plateau">40% → 41.2% (+3%)</strong></p>
+    </fieldset>
+
+    <p hidden>Some values are out of range. Fix the marked fields to update the levers.</p>
+</form>
+
+<h2 id="use-in-model">Use in model</h2>
+<p>Activation moves retention, a lever of <a href="/model/mau/">MAU</a> and <a href="/model/ltv/">LTV</a>. Open them with these numbers to see what it means for users and revenue.</p>
+<p><strong>Retention.</strong> Enter it in “Your numbers” and the change in the “Retention” lever.</p>
+<table>
+    <tr><th>Retention</th><td data-out="use-pr">40%</td></tr>
+    <tr><th>Lever: improve&nbsp;by</th><td data-out="use-lp">+3%</td></tr>
+</table>
+<p><a id="mau-link" href="/model/mau/">MAU with these numbers</a>&emsp;<a id="ltv-link" href="/model/ltv/">LTV with these numbers</a></p>
+
+<script type="module" src="/assets/js/activation-page.js"></script>
+
+    </main>
+    <footer>
+        <p><strong>P.S.</strong> These calculators are a skeleton. I build growth models on real data and help find the lever worth betting on. Write me a few lines about your product, and I will reply with how I would approach it.</p>
+        <p><strong>P.P.S.</strong> Questions are welcome too. Feedback and ideas for new tools can go to an <a href="https://forms.gle/PQt7J9Cd67cTTXZp9" target="_blank" rel="noopener noreferrer">anonymous form</a>.</p>
+        <p><strong>Dmitrii Pankov</strong><br>Product growth modeling<br><a href="https://www.linkedin.com/in/dmitriipankov" target="_blank" rel="noopener noreferrer">LinkedIn</a>&emsp;<a href="mailto:dmitrii.pankov.am@gmail.com">Email</a>&emsp;<a href="https://forms.gle/PQt7J9Cd67cTTXZp9" target="_blank" rel="noopener noreferrer">Feedback</a></p>
+    </footer>
+</body>
+</html>

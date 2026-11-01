@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- The gear from the site label: white on a black square. Drawn as a path,
+       not the ⚙ character, so it looks the same whatever fonts a system has -->
+  <rect width="32" height="32"/>
+  <path fill="#fff" fill-rule="evenodd" d="M25.3 14.0L28.4 14.1L28.4 17.9L25.3 18.0L24.0 21.1L26.1 23.4L23.4 26.1L21.1 24.0L18.0 25.3L17.9 28.4L14.1 28.4L14.0 25.3L10.9 24.0L8.6 26.1L5.9 23.4L8.0 21.1L6.7 18.0L3.6 17.9L3.6 14.1L6.7 14.0L8.0 10.9L5.9 8.6L8.6 5.9L10.9 8.0L14.0 6.7L14.1 3.6L17.9 3.6L18.0 6.7L21.1 8.0L23.4 5.9L26.1 8.6L24.0 10.9Z M20 16A4 4 0 1 0 12 16A4 4 0 1 0 20 16Z"/>
+</svg>

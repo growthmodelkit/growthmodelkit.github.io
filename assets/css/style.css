@@ -1,1 +1,49 @@
-/* Customisation */
+/* The site has no styles but these: the browser shows plain HTML. The
+   rules below are only what the charts drawn by assets/js/chart.js and
+   stacked.js need to work: the colours they draw with, room for the tooltip,
+   the SVG as wide as the page. */
+
+:root {
+    --ink: #000;
+    --paper: #fff;
+    --muted: #555;
+}
+
+.chart-plot {
+    position: relative;
+}
+
+.chart-plot svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    overflow: visible;
+}
+
+.chart-cross {
+    stroke: var(--muted);
+}
+
+.chart-dot {
+    fill: var(--ink);
+    stroke: var(--paper);
+    stroke-width: 2;
+}
+
+.chart-hit {
+    fill: transparent;
+    touch-action: pan-y;
+}
+
+.chart-tooltip {
+    position: absolute;
+    pointer-events: none;
+    background: var(--paper);
+    border: 1px solid var(--ink);
+    padding: 0.5em 0.75em;
+    white-space: nowrap;
+}
+
+.chart-tooltip-title {
+    color: var(--muted);
+}

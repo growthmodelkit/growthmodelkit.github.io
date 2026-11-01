@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAU forecast calculator from a retention curve · Growth Model Kit</title>
+    <meta name="description" content="Where will your users and revenue go from here?">
+    <link rel="canonical" href="https://growthmodelkit.com/model/mau/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Growth Model Kit">
+    <meta property="og:title" content="MAU forecast calculator from a retention curve">
+    <meta property="og:description" content="Where will your users and revenue go from here?">
+    <meta property="og:url" content="https://growthmodelkit.com/model/mau/">
+    <meta property="og:image" content="https://growthmodelkit.com/assets/img/og.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="A person pushes a lever; gears and pulleys lift the retention curve. Find the lever that matters.">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+    <link rel="stylesheet" href="/assets/css/book.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <script data-goatcounter="https://growthmodelkit.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+    <script type="application/ld+json">
+    {"@context": "https://schema.org", "@graph": [
+        {"@type": "WebSite", "@id": "https://growthmodelkit.com/#website", "url": "https://growthmodelkit.com/", "name": "Growth Model Kit", "description": "Simple calculators to find the levers of your product growth", "author": {"@id": "https://growthmodelkit.com/about/#person"}},
+        {"@type": "Person", "@id": "https://growthmodelkit.com/about/#person", "name": "Dmitrii Pankov", "jobTitle": "Product growth modeling", "url": "https://growthmodelkit.com/about/", "image": "https://growthmodelkit.com/assets/img/dmitrii-pankov.jpg", "sameAs": ["https://www.linkedin.com/in/dmitriipankov"]},
+        {"@type": "WebApplication", "name": "MAU forecast calculator from a retention curve", "description": "Where will your users and revenue go from here?", "url": "https://growthmodelkit.com/model/mau/", "applicationCategory": "BusinessApplication", "operatingSystem": "Any", "browserRequirements": "Requires JavaScript", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "author": {"@id": "https://growthmodelkit.com/about/#person"}, "isPartOf": {"@id": "https://growthmodelkit.com/#website"}}
+    ]}
+    </script>
+</head>
+<body>
+    <header>
+        <a href="/">Growth Model Kit <svg aria-hidden="true" viewBox="3.6 3.6 24.8 24.8" width="1em" height="1em" style="vertical-align: -0.23em"><path fill="currentColor" fill-rule="evenodd" d="M25.3 14.0L28.4 14.1L28.4 17.9L25.3 18.0L24.0 21.1L26.1 23.4L23.4 26.1L21.1 24.0L18.0 25.3L17.9 28.4L14.1 28.4L14.0 25.3L10.9 24.0L8.6 26.1L5.9 23.4L8.0 21.1L6.7 18.0L3.6 17.9L3.6 14.1L6.7 14.0L8.0 10.9L5.9 8.6L8.6 5.9L10.9 8.0L14.0 6.7L14.1 3.6L17.9 3.6L18.0 6.7L21.1 8.0L23.4 5.9L26.1 8.6L24.0 10.9Z M20 16A4 4 0 1 0 12 16A4 4 0 1 0 20 16Z"/></svg></a>
+        <nav aria-label="Site">
+            <ul>
+                <li><a href="/model/" aria-current="true">Model</a></li>
+                <li><a href="/about/">About</a></li>
+            </ul>
+        </nav>
+        <nav aria-label="Tools">
+            <ul>
+                <li><a href="/model/mau/" aria-current="page">MAU</a></li>
+                <li><a href="/model/ltv/">LTV</a></li>
+                <li><a href="/model/activation/">Activation</a></li>
+                <li><a href="/model/engagement/">Engagement</a></li>
+                <li><a href="/model/virality/">Virality</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>MAU</h1>
+        <p>Where will your users and revenue go from here?</p>
+        <nav aria-label="On this page">
+            <ul>
+                <li><a href="#chart">Chart</a></li>
+                <li><a href="#your-numbers">Your numbers</a></li>
+                <li><a href="#result">Result</a></li>
+                <li><a href="#levers">Levers</a></li>
+            </ul>
+        </nav>
+        <h2 id="chart">Chart</h2>
+<figure class="chart" id="mau-chart" data-label="MAU forecast by month">
+    <figcaption>MAU by month. In brackets: the ceiling, where new users only replace the ones who leave.</figcaption>
+    <div class="chart-plot"></div>
+</figure>
+
+<h2 id="your-numbers">Your numbers</h2>
+<p>Start with the example numbers, then put in your own.</p>
+<form id="mau-form">
+    <p><strong>Retention.</strong> Take your retention curve. Find the month when it flattens and the share of users still active then: that is retention. Churn is the share of them who leave each month after that.</p>
+    <fieldset>
+        <legend>Retention</legend>
+        <p><label for="pm">Month of the&nbsp;plateau</label> <input id="pm" name="pm" type="number" value="3" min="1" max="36" step="1" required> <small>month</small></p>
+        <p><label for="pr">Retention</label> <input id="pr" name="pr" type="number" value="40" min="0.1" max="99.9" step="any" required> <small>%</small></p>
+        <p><label for="ch">Churn</label> <input id="ch" name="ch" type="number" value="5" min="0" max="100" step="any" required> <small>%</small></p>
+    </fieldset>
+
+    <p><strong>Growth.</strong> Your active users this month and how many new users come each month: take the average of the last few months. Revenue per active user is monthly revenue divided by MAU.</p>
+    <fieldset>
+        <legend>Growth</legend>
+        <p><label for="mau">Current MAU</label> <input id="mau" name="mau" type="number" value="10000" min="0" step="any" required> <small>users</small></p>
+        <p><label for="new">New users per month</label> <input id="new" name="new" type="number" value="2000" min="0" step="any" required> <small>users</small></p>
+        <p><label for="arpu">Monthly revenue per active user</label> <input id="arpu" name="arpu" type="number" value="5" min="0" step="any" required> <small>$</small></p>
+    </fieldset>
+
+    <p><strong>Chart.</strong> How many months ahead to look. The levers use the same months.</p>
+    <fieldset>
+        <legend>Chart</legend>
+        <p><label for="h">Months ahead</label> <input id="h" name="h" type="number" value="12" min="1" max="120" step="1" required> <small>months</small></p>
+    </fieldset>
+
+    <p hidden>Some values are out of range. Fix the marked fields to update the forecast.</p>
+</form>
+
+<h2 id="result">Result</h2>
+<p><strong>MAU.</strong> Where MAU will be in month&nbsp;<span data-out="h">12</span>, and its ceiling: the level where new users only replace the ones who leave. MAU moves toward it, fast at first and slower later.</p>
+<table>
+    <tr><th>MAU in month&nbsp;<span data-out="h">12</span></th><td><span data-out="mau-end">15.6K</span> <span data-out="mau-change">(+55.5% vs now)</span></td></tr>
+    <tr><th>MAU ceiling</th><td><span data-out="ceiling">20.2K</span> <span data-out="ceiling-note">(76.9% reached in month 12)</span></td></tr>
+</table>
+
+<p><strong>Revenue.</strong> MAU times revenue per active user: in the last month, and added up over all months.</p>
+<table>
+    <tr><th>Revenue in month&nbsp;<span data-out="h">12</span></th><td><span data-out="revenue-end">$77.8K</span> <span data-out="revenue-change">(+55.5% vs now)</span></td></tr>
+    <tr><th>Total revenue, months&nbsp;1⁠–⁠<span data-out="h">12</span></th><td data-out="revenue-total">$832.6K</td></tr>
+</table>
+
+<p><a id="ltv-link" href="/model/ltv/">LTV with these numbers</a></p>
+
+<h2 id="levers">Levers</h2>
+<p>Four numbers move MAU and revenue. Set how much you could improve each one to see the effect in the next <span data-out="h">12</span> months. Retention is the base of the model, but retention and churn pay off slowly: compare the levers by the ceiling too, not only by month&nbsp;<span data-out="h">12</span>.</p>
+<form id="levers-form">
+    <p><strong>New users per month.</strong> More budget, a new channel or a viral loop brings more new users: see <a href="/model/virality/">Virality</a>. The gain adds up with every new cohort.</p>
+    <fieldset>
+        <legend>New users per month</legend>
+        <p><label for="ln">Improve&nbsp;by</label> <input id="ln" name="ln" type="number" value="10" min="0" max="1000" step="any" required> <small>+%&nbsp;of&nbsp;current</small></p>
+        <p><span>Change</span> <output data-out="lever-new">2,000 → 2,200</output></p>
+        <p><span>MAU in month&nbsp;<span data-out="h">12</span></span> <strong data-out="mau-new">15.6K → 16.6K (+6.5%)</strong></p>
+        <p><span>MAU ceiling</span> <strong data-out="ceiling-new">20.2K → 22.3K (+10%)</strong></p>
+        <p><span>Revenue, months&nbsp;1⁠–⁠<span data-out="h">12</span></span> <strong data-out="effect-new">$832.6K → $872.2K (+4.8%)</strong></p>
+    </fieldset>
+
+    <p><strong>Retention.</strong> More new users stay when onboarding helps them reach the value early (see <a href="/model/activation/">Activation</a>), and when your channels bring users who really need the product. It works only on new users, so its effect grows with time.</p>
+    <fieldset>
+        <legend>Retention</legend>
+        <p><label for="lp">Improve&nbsp;by</label> <input id="lp" name="lp" type="number" value="10" min="0" max="1000" step="any" required> <small>+%&nbsp;of&nbsp;current</small></p>
+        <p><span>Change</span> <output data-out="lever-plateau">40% → 44%</output></p>
+        <p><span>MAU in month&nbsp;<span data-out="h">12</span></span> <strong data-out="mau-plateau">15.6K → 16.3K (+4.7%)</strong></p>
+        <p><span>MAU ceiling</span> <strong data-out="ceiling-plateau">20.2K → 22.0K (+8.6%)</strong></p>
+        <p><span>Revenue, months&nbsp;1⁠–⁠<span data-out="h">12</span></span> <strong data-out="effect-plateau">$832.6K → $855.6K (+2.8%)</strong></p>
+    </fieldset>
+
+    <p><strong>Churn.</strong> After the plateau, users leave when the product stops being worth it. Fewer leave when they use more of it, when it keeps getting better, and when moving to a competitor is hard: their data, history or team are in it. You can also win back the ones who drift away. It works on today's users too, so it shows from the first month.</p>
+    <fieldset>
+        <legend>Churn</legend>
+        <p><label for="lc">Improve&nbsp;by</label> <input id="lc" name="lc" type="number" value="10" min="0" max="100" step="any" required> <small>−%&nbsp;of&nbsp;current</small></p>
+        <p><span>Change</span> <output data-out="lever-churn">5% → 4.5%</output></p>
+        <p><span>MAU in month&nbsp;<span data-out="h">12</span></span> <strong data-out="mau-churn">15.6K → 16.0K (+3%)</strong></p>
+        <p><span>MAU ceiling</span> <strong data-out="ceiling-churn">20.2K → 22.0K (+8.8%)</strong></p>
+        <p><span>Revenue, months&nbsp;1⁠–⁠<span data-out="h">12</span></span> <strong data-out="effect-churn">$832.6K → $848.4K (+1.9%)</strong></p>
+    </fieldset>
+
+    <p><strong>Revenue per active user.</strong> Users pay more when they use more, upgrade or pay a higher price: see <a href="/model/engagement/">Engagement</a>. MAU does not change.</p>
+    <fieldset>
+        <legend>Revenue per active user</legend>
+        <p><label for="la">Improve&nbsp;by</label> <input id="la" name="la" type="number" value="10" min="0" max="1000" step="any" required> <small>+%&nbsp;of&nbsp;current</small></p>
+        <p><span>Change</span> <output data-out="lever-arpu">$5 → $5.50</output></p>
+        <p><span>MAU in month&nbsp;<span data-out="h">12</span></span> <strong data-out="mau-arpu">15.6K (no change)</strong></p>
+        <p><span>MAU ceiling</span> <strong data-out="ceiling-arpu">20.2K (no change)</strong></p>
+        <p><span>Revenue, months&nbsp;1⁠–⁠<span data-out="h">12</span></span> <strong data-out="effect-arpu">$832.6K → $915.8K (+10%)</strong></p>
+    </fieldset>
+
+    <p><strong>All levers.</strong> More users come, more of them stay, they stay longer, and they pay more. Together the levers give more than their gains added up.</p>
+    <fieldset>
+        <legend>All levers</legend>
+        <p><span>MAU in month&nbsp;<span data-out="h">12</span></span> <strong data-out="mau-all">15.6K → 17.9K (+14.8%)</strong></p>
+        <p><span>MAU ceiling</span> <strong data-out="ceiling-all">20.2K → 26.3K (+30.1%)</strong></p>
+        <p><span>Revenue, months&nbsp;1⁠–⁠<span data-out="h">12</span></span> <strong data-out="effect-all">$832.6K → $1.0M (+20.7%)</strong></p>
+    </fieldset>
+
+    <p hidden>Some values are out of range. Fix the marked fields to update the levers.</p>
+</form>
+
+<script type="module" src="/assets/js/mau-page.js"></script>
+
+    </main>
+    <footer>
+        <p><strong>P.S.</strong> These calculators are a skeleton. I build growth models on real data and help find the lever worth betting on. Write me a few lines about your product, and I will reply with how I would approach it.</p>
+        <p><strong>P.P.S.</strong> Questions are welcome too. Feedback and ideas for new tools can go to an <a href="https://forms.gle/PQt7J9Cd67cTTXZp9" target="_blank" rel="noopener noreferrer">anonymous form</a>.</p>
+        <p><strong>Dmitrii Pankov</strong><br>Product growth modeling<br><a href="https://www.linkedin.com/in/dmitriipankov" target="_blank" rel="noopener noreferrer">LinkedIn</a>&emsp;<a href="mailto:dmitrii.pankov.am@gmail.com">Email</a>&emsp;<a href="https://forms.gle/PQt7J9Cd67cTTXZp9" target="_blank" rel="noopener noreferrer">Feedback</a></p>
+    </footer>
+</body>
+</html>

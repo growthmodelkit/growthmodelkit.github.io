@@ -1,0 +1,328 @@
+/* Site styles, after a typewritten page (a White House press release of
+   1961): one typewriter font at one size, the system colours of the browser,
+   a sheet 64 characters wide. Emphasis by capitals and bold only; levels by
+   place on the sheet: header at the edges, the page title centred, values
+   and the signature at tab stops. Classless: rules are on tags. Charts have
+   their own rules in style.css. */
+
+:root {
+    /* Tab stop in the middle of the sheet: values of tables, the signature */
+    --middle: 32ch;
+    /* Columns of a form: the group name, the field name; inputs after them */
+    --group: 14ch;
+    --field: 24ch;
+}
+
+/* The sheet: 64 characters of the typewriter font, in the middle of the
+   window */
+body {
+    max-width: calc(64ch + 2 * 1.5em);
+    margin: 0 auto;
+    padding: 3em 1.5em;
+    font-family: "Courier New", Courier, monospace;
+    /* 16px on a phone, up to 18px on a wide screen */
+    font-size: clamp(1rem, 0.9rem + 0.25vw, 1.125rem);
+    line-height: 1.5;
+}
+
+/* One font at one size for all text, inputs and units too */
+h1,
+h2,
+legend,
+th,
+td,
+small {
+    font-size: 1em;
+}
+
+/* Numbers in inputs to the right, like figures in a column */
+input {
+    font: inherit;
+    text-align: right;
+}
+
+/* Header, like the top line of a release: the site name on the left, the
+   sections of the site on the right, in capitals */
+header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 0 3ch;
+    text-transform: uppercase;
+}
+
+header ul,
+main > nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 3ch;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+/* The site name as a label: the page colours swapped (system colours, so
+   it follows the browser), square, like a typewriter tab. Not a link to the
+   eye, though it leads home. The negative margin lines up its text, not the
+   box, with the text below */
+header > a:first-child {
+    margin-left: -1ch;
+    padding: 0.15em 1ch;
+    background: CanvasText;
+    color: Canvas;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* Sections of the page: one line under the centred description, centred too */
+main > nav ul {
+    justify-content: center;
+}
+
+/* The tools: a second line of the header, at the right edge under the
+   site sections */
+header nav[aria-label="Tools"] {
+    flex-basis: 100%;
+    margin-top: 0.75em;
+}
+
+header nav[aria-label="Tools"] ul {
+    justify-content: flex-end;
+}
+
+/* The current page in a menu: bold, not a link; its section in the site
+   menu (Tools on a tool page): a bold link */
+a[aria-current="page"] {
+    color: inherit;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+a[aria-current="true"] {
+    font-weight: bold;
+}
+
+/* Page title: centred bold capitals, the description under it centred */
+h1 {
+    margin: 4.5em 0 1.5em;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+h1 + p {
+    text-align: center;
+}
+
+/* Section headings: bold capitals on the left */
+h2 {
+    margin: 4.5em 0 1.5em;
+    text-transform: uppercase;
+}
+
+/* A dash for list items, as on a typewriter */
+ul {
+    list-style-type: "- ";
+}
+
+/* Forms as a table of three columns: the group name (once, by its first
+   field), the field name, the input with its unit next to it. No box
+   around a group. A legend taken out of the flow is an ordinary box, not
+   the caption in the border, so it can stand in the first column */
+fieldset {
+    position: relative;
+    margin: 1.5em 0 0;
+    padding: 0 0 0 var(--group);
+    border: 0;
+}
+
+legend {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: calc(var(--group) - 2ch);
+    padding: 0;
+    text-transform: uppercase;
+}
+
+fieldset > p {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    column-gap: 1ch;
+    margin: 0 0 0.75em;
+}
+
+fieldset > p > :first-child {
+    width: var(--field);
+    margin-right: 1ch;
+}
+
+fieldset input {
+    width: 10ch;
+}
+
+/* Pairs of a paragraph that names a group with its first bold words, and
+   the group right under it: a short form or table. The legend stays for
+   screen readers only, the rows keep their tab stop. Pairs are set apart
+   by two blank lines */
+p:has(> strong:first-child) + fieldset > legend {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+}
+
+:is(fieldset, table) + p:has(> strong:first-child) {
+    margin-top: 3em;
+}
+
+/* A table in a pair stands like a form group: from the group tab stop,
+   values at the same tab stop as the inputs */
+p:has(> strong:first-child) + table {
+    margin-left: var(--group);
+}
+
+p:has(> strong:first-child) + table th {
+    width: var(--field);
+}
+
+@media screen and (max-width: 44em) {
+    p:has(> strong:first-child) + table {
+        margin-left: 0;
+    }
+
+    p:has(> strong:first-child) + table th {
+        width: auto;
+    }
+}
+
+/* Narrow screens: no room for three columns, the group name goes over its
+   fields and the input under the field name */
+@media screen and (max-width: 44em) {
+    fieldset {
+        padding-left: 0;
+    }
+
+    legend {
+        position: static;
+        width: auto;
+        margin-bottom: 0.75em;
+    }
+
+    fieldset > p > :first-child {
+        width: 100%;
+    }
+}
+
+/* A table: values at a tab stop in the middle of the sheet */
+th {
+    font-weight: normal;
+    text-align: left;
+    vertical-align: top;
+}
+
+/* Tables of results: an empty line before and after (the browser has
+   none), labels plain, values bold, so the eye goes down the values; a
+   note after a value, like "(+55.5% vs now)", is plain again */
+table {
+    margin: 1.5em 0;
+    border-collapse: collapse;
+}
+
+td {
+    font-weight: bold;
+    vertical-align: top;
+}
+
+td > span + span {
+    font-weight: normal;
+}
+
+/* Half an empty line between the rows of a table */
+th,
+td {
+    padding: 0.375em 0;
+}
+
+/* The tab stop is in the middle of the sheet, the same in every table:
+   a long label wraps */
+th {
+    width: var(--middle);
+    padding-right: 2ch;
+}
+
+/* Narrow screens: no room for the tab stop, the value goes under its label */
+@media screen and (max-width: 44em) {
+    tr,
+    th,
+    td {
+        display: block;
+    }
+
+    th {
+        padding-bottom: 0;
+    }
+
+    td {
+        padding-top: 0;
+    }
+
+    tr + tr {
+        margin-top: 0.75em;
+    }
+}
+
+/* A typed diagram: in the page font and size, scrolls by itself on a
+   screen narrower than it */
+pre {
+    margin: 1.5em 0;
+    font: inherit;
+    line-height: 1.25;
+    overflow-x: auto;
+}
+
+/* A chart: on the sheet edge to edge, no indent; a blank line between its
+   caption and the chart, whose name is bold (drawn in the SVG) */
+figure:has(.chart-plot) {
+    margin: 1.5em 0;
+}
+
+figure:has(.chart-plot) > figcaption {
+    margin-bottom: 1.5em;
+}
+
+/* The author on About: the photo with the signature next to it, together
+   in the middle of the sheet; on a phone the signature goes under the photo */
+figure:has(> img) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5em 3ch;
+    margin: 3em 0;
+}
+
+figure > img {
+    display: block;
+}
+
+/* Footer: a P.S. and the signature, like the end of a typed letter; the
+   whole footer starts from the middle of the sheet */
+footer {
+    margin-top: 4.5em;
+    margin-left: min(var(--middle), 50%);
+}
+
+/* Narrow screens: the footer without its indent, the tools row from the left edge */
+@media screen and (max-width: 44em) {
+    footer {
+        margin-left: 0;
+    }
+
+    header nav[aria-label="Tools"] ul {
+        justify-content: flex-start;
+    }
+}
