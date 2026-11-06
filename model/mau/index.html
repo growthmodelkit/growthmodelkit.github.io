@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MAU forecast calculator from a retention curve · Growth Model Kit</title>
+    <title>Monthly active users (MAU) forecast calculator · Growth Model Kit</title>
     <meta name="description" content="Where will your users and revenue go from here?">
     <link rel="canonical" href="https://growthmodelkit.com/model/mau/">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Growth Model Kit">
-    <meta property="og:title" content="MAU forecast calculator from a retention curve">
+    <meta property="og:title" content="Monthly active users (MAU) forecast calculator">
     <meta property="og:description" content="Where will your users and revenue go from here?">
     <meta property="og:url" content="https://growthmodelkit.com/model/mau/">
     <meta property="og:image" content="https://growthmodelkit.com/assets/img/og.png">
@@ -25,7 +25,7 @@
     {"@context": "https://schema.org", "@graph": [
         {"@type": "WebSite", "@id": "https://growthmodelkit.com/#website", "url": "https://growthmodelkit.com/", "name": "Growth Model Kit", "description": "Simple calculators to find the levers of your product growth", "author": {"@id": "https://growthmodelkit.com/about/#person"}},
         {"@type": "Person", "@id": "https://growthmodelkit.com/about/#person", "name": "Dmitrii Pankov", "jobTitle": "Product growth modeling", "url": "https://growthmodelkit.com/about/", "image": "https://growthmodelkit.com/assets/img/dmitrii-pankov.jpg", "sameAs": ["https://www.linkedin.com/in/dmitriipankov"]},
-        {"@type": "WebApplication", "name": "MAU forecast calculator from a retention curve", "description": "Where will your users and revenue go from here?", "url": "https://growthmodelkit.com/model/mau/", "applicationCategory": "BusinessApplication", "operatingSystem": "Any", "browserRequirements": "Requires JavaScript", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "author": {"@id": "https://growthmodelkit.com/about/#person"}, "isPartOf": {"@id": "https://growthmodelkit.com/#website"}}
+        {"@type": "WebApplication", "name": "Monthly active users (MAU) forecast calculator", "description": "Where will your users and revenue go from here?", "url": "https://growthmodelkit.com/model/mau/", "applicationCategory": "BusinessApplication", "operatingSystem": "Any", "browserRequirements": "Requires JavaScript", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "author": {"@id": "https://growthmodelkit.com/about/#person"}, "isPartOf": {"@id": "https://growthmodelkit.com/#website"}}
     ]}
     </script>
 </head>
@@ -49,7 +49,7 @@
         </nav>
     </header>
     <main>
-        <h1>MAU</h1>
+        <h1>Monthly active users (MAU)</h1>
         <p>Where will your users and revenue go from here?</p>
         <nav aria-label="On this page">
             <ul>
@@ -68,7 +68,7 @@
 <h2 id="your-numbers">Your numbers</h2>
 <p>Start with the example numbers, then put in your own.</p>
 <form id="mau-form">
-    <p><strong>Retention.</strong> Take your retention curve. Find the month when it flattens and the share of users still active then: that is retention. Churn is the share of them who leave each month after that.</p>
+    <p><strong>Retention.</strong> Take your retention curve. Find the month when it flattens and the share of users still active then: that is your retention rate. Churn is the share of them who leave each month after that.</p>
     <fieldset>
         <legend>Retention</legend>
         <p><label for="pm">Month of the&nbsp;plateau</label> <input id="pm" name="pm" type="number" value="3" min="1" max="36" step="1" required> <small>month</small></p>

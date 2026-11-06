@@ -6,8 +6,8 @@ The retention curve: a cohort starts at 100% in the month it joins, falls fast a
 
 ## Tools
 
-- [MAU](https://growthmodelkit.com/model/mau/): where monthly active users and revenue go, and which lever moves them most. MAU moves toward a ceiling where new users only replace the ones who leave: MAU ceiling = new users per month × average lifetime of a user.
-- [LTV](https://growthmodelkit.com/model/ltv/): what one new user is worth. LTV = monthly revenue per active user × average lifetime. Average lifetime is the sum of the retention curve over all months; after the plateau it adds retention / churn.
+- [MAU, monthly active users](https://growthmodelkit.com/model/mau/): where monthly active users and revenue go, and which lever moves them most. MAU moves toward a ceiling where new users only replace the ones who leave: MAU ceiling = new users per month × average lifetime of a user.
+- [LTV, customer lifetime value](https://growthmodelkit.com/model/ltv/): what one new user is worth. LTV = monthly revenue per active user × average lifetime. Average lifetime is the sum of the retention curve over all months; after the plateau it adds retention / churn.
 - [Activation](https://growthmodelkit.com/model/activation/): how better onboarding lifts retention. Retention of all new users = share who activate × their retention + share of the others × theirs.
 - [Engagement](https://growthmodelkit.com/model/engagement/): how engagement lifts revenue per active user. Revenue per active user = sum over casual, core and power users of their share × their revenue per user.
 - [Virality](https://growthmodelkit.com/model/virality/): how many users a new one brings. K-factor = invites per user × share of invites that turn into users. Growth multiplier after n viral cycles = 1 + k + k² + … + kⁿ; with k below 1 it stops at 1 / (1 − k).
